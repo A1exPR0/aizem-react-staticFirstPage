@@ -4,11 +4,11 @@ import Badge from './Badge'
 import gsap from 'gsap'
 
 const servicesData=[
-  {title:"Branding", content:"-first line<br/>-second line", img:"images/services/Rectangle_45_5f6a0fc144.png",badges:["Beenamel","Ycure"]},
-  {title:"Web Design", content:"Another content to write here", img:"images/services/medium_sveta_me2_173496bb22.png",badges:["Overquell","dasBuro"]},
-  {title:"Design Sprint", content:"Another content to write here", img:"images/services/medium_bg_about_d565a96c4c.jpg",badges:["Im'OK","Cryptomons"]},
-  {title:"Strategy", content:"Another content to write here", img:"images/services/medium_bg_vacancies_41bca8cbc8.jpg",badges:["Beenamel","MSS"]},
-  {title:"Graphic Design", content:"Another content to write here", img:"images/services/medium_3_banera_b3644b19c2.png",badges:["Lookin Rooms","Zodiac"]},
+  {title:"Branding", content:"\n- Branding Strategy\n- Brandbook\n- Logotype\n- Key Visual\n- Brand Communication", img:"images/services/Rectangle_45_5f6a0fc144.png",badges:["Beenamel","Ycure"]},
+  {title:"Web Design", content:"\n- User Experience Design\n- User Interface Design\n- Web Developmnet", img:"images/services/medium_sveta_me2_173496bb22.png",badges:["Overquell","dasBuro"]},
+  {title:"Design Sprint", content:"Быстрый способ решить сложную задачу по методике Google", img:"images/services/medium_bg_about_d565a96c4c.jpg",badges:["Im'OK","Cryptomons"]},
+  {title:"Strategy", content:"\n- Brand Strategy\n- Content Strategy\n- Marketing Strategy", img:"images/services/medium_bg_vacancies_41bca8cbc8.jpg",badges:["Beenamel","MSS"]},
+  {title:"Graphic Design", content:"\n- Posters\n- Banners\n- Social Media Content\n- POS Materials", img:"images/services/medium_3_banera_b3644b19c2.png",badges:["Lookin Rooms","Zodiac"]},
 ]
 
 function SevicesToggler() {
@@ -41,6 +41,27 @@ function SevicesToggler() {
     }
   }
 
+ const convertMD=(input)=>{
+  let arr=input.split("\n");
+  const html = React.createElement(
+    function content(){
+      return(
+        <ul style={{margin:0,paddingLeft:"2rem"}}>
+          {arr.map((element)=>{
+            if(element!="")
+              if(element.slice(0,2)=="- ")
+                return <li>{element.slice(2,element.length)}</li>
+              else
+                return <p>{element}</p>
+          })}
+        </ul>
+      )
+    }
+  );
+
+  return html;
+ }
+
   return (
     <div className={styles.wrapper}>
         <div className={styles.buttons}>
@@ -52,7 +73,7 @@ function SevicesToggler() {
             <div className={styles.serviceCard}> 
                 <div className={styles.serviceInfo}>
                   <h3>{servicesData[current].title}</h3>
-                  <div className={styles.content}>{servicesData[current].content}</div>
+                  <div className={styles.content}>{convertMD(servicesData[current].content)}</div>
                   <div className={styles.badges}>
                     {servicesData[current].badges.map((el)=>{
                       return <Badge key={el} styling="green-solid">{el}</Badge>
