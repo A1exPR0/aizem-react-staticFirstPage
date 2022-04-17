@@ -125,14 +125,14 @@ const q=gsap.utils.selector(props.appref);
 
     useEffect(()=>{
       let timerId;
-      console.log("isRevealde: "+isRevealed);
+      // console.log("isRevealde: "+isRevealed);
       if(!isRevealed){
         removeWrappedText();
         appendWrappedText(textArr[textArr.length-1],true);
         reveal();   
       }
       timerId=setInterval(()=>{
-        console.log("Interval step");
+        // console.log("Interval step");
         // console.log(styles);
         rotateText();
 

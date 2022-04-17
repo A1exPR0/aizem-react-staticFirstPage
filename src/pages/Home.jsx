@@ -20,115 +20,68 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
   const arrowD = <FontAwesomeIcon icon={faCaretDown} style={{marginLeft:"0.2em"}}/>
 
-  const sliderDataStatic=[
-    {withDesign:"images/pairs/medium_boxes_design_b4ac0717e0.png",noDesign:"images/pairs/medium_boxes_nodesign_60306de0e2.png"},
-    {withDesign:"images/pairs/medium_outdoor_Design_b3624bb656.png",noDesign:"images/pairs/medium_outdoor_blank_ffbc047e72.png"},
-    {withDesign:"images/pairs/medium_Scene_29_4012c698e6.png",noDesign:"images/pairs/medium_Scene_29_nodesign_e24d8eb0bd.png"},
-  ]
+  
 
 const settings={
-  sliderInterval:5000, // in ms
-  sliderX:100,
-  sliderDelay:0.3,
   revealY:50
 };
 
 function Home(props) {
 
-const {server,cursor,updateCursor}=useContext(myContext);
 
-const[sliderData,setSliderData]=useState([]);
-const [counter,setCounter]=useState(0);
+  
+  
 
-const sliderRef=useRef();
-const q = gsap.utils.selector(sliderRef);
 
-const timerID=useRef();
 
-const q2 = gsap.utils.selector(props.appref);
-
+//page reveal
 useEffect(()=>{
   // getSliderData();
   
-  gsap.fromTo(q2(".page"),{
+  gsap.fromTo(".page",{
     opacity:0,
     y:settings.revealY
   },{
-      opacity:1,
-      y:0
+    opacity:1,
+    y:0
   });
 
 },[])
 
 
 
-useEffect(()=>{
-  timerID.current=setInterval(()=>{
 
+//   const getSliderData = async() => {
+//     const ls=localStorage.getItem('SliderData');
 
-    gsap.to(q("image"), {
-                x: -settings.sliderX,
-                opacity: 0,
-              onComplete:()=>{
-                
-                if(counter+1 < sliderDataStatic.length) 
-                  {setCounter(counter+1);}
-                else
-                  {setCounter(0);}
-                gsap.fromTo(q("image"), {
-                                    x: settings.sliderX,
-                                    opacity: 0
-                                },{
-                                  x:0,
-                                  opacity:1,
-                                  delay:settings.sliderDelay
-                                });        
+//     if(ls){
+//       setSliderData(JSON.parse(ls));
+//         // console.log("Data for slider set from Local storage");
 
-              }});
-
-  
-    },settings.sliderInterval);
-    return (()=>{
-      clearInterval(timerID.current);
-    })
-},[counter,sliderData])
-
-const calculateMaskPos=(e)=>{
-  updateCursor(e);
-  console.log(cursor);
-}
-
-  const getSliderData = async() => {
-    const ls=localStorage.getItem('SliderData');
-
-    if(ls){
-      setSliderData(JSON.parse(ls));
-        // console.log("Data for slider set from Local storage");
-
-    }
-    else{
-        const response = await fetch("http://"+server+":1337/api/home-page?populate=pair.noDesign%2Cpair.withDesign");
-        const data = await response.json();
+//     }
+//     else{
+//         const response = await fetch("http://"+server+":1337/api/home-page?populate=pair.noDesign%2Cpair.withDesign");
+//         const data = await response.json();
         
-        localStorage.setItem('SliderData',JSON.stringify(data.data.attributes.pair));
-        // console.log("Data for slider set from api call"); 
-        // console.log(data.data.attributes.pair);
-        setSliderData(data.data.attributes.pair);
-        };
+//         localStorage.setItem('SliderData',JSON.stringify(data.data.attributes.pair));
+//         // console.log("Data for slider set from api call"); 
+//         // console.log(data.data.attributes.pair);
+//         setSliderData(data.data.attributes.pair);
+//         };
       
 
-}
+// }
 
 // console.log(arrow);
   return (
-    <div className='page' ref={sliderRef} >
+    <div className='page'  >
       <div className={styles.section} >
         <TextTest appref={props.appref}/>
         <div className={styles.buttonsTop}>
           <Button href="contacts" type="scroll" styling="orange">Свяжитесь с нами</Button>
           <Button href="cases" type="scroll" styling="white">Наши работы {arrowD}</Button>
         </div>
-        <NewSlider sliderData={sliderDataStatic} counter={counter}/>
+        <NewSlider />
       </div>
      
      <div className={styles.section} id="cases">

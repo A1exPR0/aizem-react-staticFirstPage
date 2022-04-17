@@ -1,61 +1,97 @@
 
-import { useContext, useEffect, useRef, useState } from 'react';
 import styles from './NewSlider.module.scss'
 import SliderPair from './SliderPair'
-import myContext from '../../Context'
 import gsap from 'gsap';
+import { useEffect, useRef, useState } from 'react';
 
 const settings={
   yCompOffset:1,
   maskRadius:80,
   maskBlockSize:400,
-  maskBlur:5
+  maskBlur:5,
+  sliderInterval:5000, // in ms
+  sliderX:100,
+  sliderDelay:0.3,
 }
+const sliderDataStatic=[
+  {withDesign:"images/pairs/medium_boxes_design_b4ac0717e0.png",noDesign:"images/pairs/medium_boxes_nodesign_60306de0e2.png"},
+  {withDesign:"images/pairs/medium_outdoor_Design_b3624bb656.png",noDesign:"images/pairs/medium_outdoor_blank_ffbc047e72.png"},
+  {withDesign:"images/pairs/medium_Scene_29_4012c698e6.png",noDesign:"images/pairs/medium_Scene_29_nodesign_e24d8eb0bd.png"},
+]
 
-function NewSlider(props) {
-  const {server}=useContext(myContext);
-   
-  // const [cursor,setCursor]=useState({x:0,y:0});
+function NewSlider() {   
+  // const sliderRef=useRef();
 
-  const svgRef=useRef();
+const [counter,setCounter]=useState(0);
+
+const [setter,setSetter]=useState({});
+
+//component did mount
+useEffect(()=>{
+  //init setter for mask
+  setSetter({
+    didMount:true,
+    xSet:gsap.quickSetter(document.querySelector("#mask circle"), "x", "px"),
+    ySet:gsap.quickSetter(document.querySelector("#mask circle"), "y", "px")
+  })
+  updateSlider();
+  return(()=>{
+    setSetter({
+      didMount:false
+    })
+  })
+},[]);
+
+//component updated counter
+useEffect(()=>{
+  if(setter.didMount){
+    setTimeout(()=>{
+      // console.log("Counter is",counter);
+    
+      updateSlider();
+
+    },settings.sliderInterval);
+  } 
+},[counter])
   
-  // const [svgHW,setSvgHW]=useState({});
-  // useEffect(()=>{
-  //   let el=document.querySelector("."+styles.svg);
-  //   let elStyles=getComputedStyle(el);
-  //   let svgWidth=elStyles.width;
-  //   let svgHeight=elStyles.height;
-  //   svgHeight=Number(svgHeight.slice(0,svgHeight.length-2));
-  //   svgWidth=Number(svgWidth.slice(0,svgWidth.length-2));
-  //   // setSvgHW({w:svgWidth,h:svgHeight});
-  // },[]);
-
-  // const viewWidth=window.visualViewport.width;
-  // const viewHeight=window.visualViewport.height;
-  const mask = document.querySelector("#mask circle");  
-const xSet = gsap.quickSetter(mask, "x", "px");
-const ySet = gsap.quickSetter(mask, "y", "px");
+  const updateSlider=()=>{
+    gsap.to("image", {                
+      x: -settings.sliderX,
+      opacity: 0,
+    onComplete:()=>{
+      // console.log("transition complete");
+      if(counter+1 < sliderDataStatic.length) 
+      {
+        // console.log("increase counter");
+        setCounter(counter+1);
+      }
+    else
+      {
+        // console.log("reset counter");
+        setCounter(0);
+      }
+        gsap.fromTo("image", {
+          x: settings.sliderX,
+          opacity: 0
+      },{
+        x:0,
+        opacity:1,
+        delay:settings.sliderDelay
+      });      
+    }})
+  }
 
   const calculateMaskPos=(e)=>{
     gsap.to("#mask circle",{opacity:1});
-    // setCursor({x:e.pageX,y:e.pageY});
     let elem =e.currentTarget;
-    // let elem = new HTMLElement;
     let scrollY=window.pageYOffset;
     let scrollX=window.pageXOffset;
     let offset=elem.getBoundingClientRect();
-    // console.log(offset.x,offset.y);
-    // gsap.to("#mask circle",{
-    //   x:e.pageX-offset.x,
-    //   y:e.pageY-offset.y,
-    //   duration:0.05
-    // })
-    xSet(e.pageX-offset.x-scrollX);
-    ySet(e.pageY-offset.y-scrollY);
+    setter.xSet(e.pageX-offset.x-scrollX);
+    setter.ySet(e.pageY-offset.y-scrollY);
   }
 
-  const fadeMask=(e)=>{
-    // console.log(e.pageX, e.pageY);
+  const fadeMask=()=>{
     gsap.to("#mask circle",{opacity:0})
   }
   const test=false;
@@ -64,14 +100,7 @@ const ySet = gsap.quickSetter(mask, "y", "px");
 
     return (
     <div>
-        {/* {test &&  <div  className="test">
-        <p>cursor is {cursor.x} and {cursor.y}</p>
-        <p>server is {server}</p>
-        <p>counter is {props.counter}</p>
-        <p>ViewPort is {viewWidth} and {viewHeight}</p>
-        </div>} */}
-
-    <svg ref={svgRef} className={styles.svg} xmlns="http://www.w3.org/2000/svg" onMouseMove={calculateMaskPos} onMouseLeave={fadeMask}>
+    <svg className={styles.svg} xmlns="http://www.w3.org/2000/svg" onMouseMove={calculateMaskPos} onMouseLeave={fadeMask}>
       <defs>
           <filter id="mask-blur">
             <feGaussianBlur stdDeviation={settings.maskBlur} />
@@ -80,18 +109,13 @@ const ySet = gsap.quickSetter(mask, "y", "px");
             <circle 
                 cx={0}
                 cy={0}
-                // cx={cursor.x-(viewWidth-(svgHW.w!==undefined?svgHW.w:0))} 
-                // cy={cursor.y-(viewHeight*settings.yCompOffset-(svgHW.h!==undefined?svgHW.h:0))} 
-                // style={{top:cursor.y,left:cursor.x}}
                 fill="white" r={settings.maskRadius} 
                 width={settings.maskBlockSize} 
                 height={settings.maskBlockSize} 
                 filter="url(#mask-blur)" />
           </mask>
       </defs>  
-
-      
-    <SliderPair sliderData={props.sliderData} counter={props.counter}/>
+    <SliderPair sliderData={sliderDataStatic} counter={counter}/>
     </svg>
     </div>
   )

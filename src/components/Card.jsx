@@ -1,9 +1,6 @@
-import React from 'react'
 import styles from './Card.module.scss'
 import Badge from './Badge';
 import {gsap} from "gsap"
-
-
 
 
 const settings={
