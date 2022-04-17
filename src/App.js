@@ -1,13 +1,12 @@
 import React, { useRef, useState } from "react";
 import Pages from "./pages/Pages";
 import SvgBack from "./components/SvgBack";
-import Home from "./pages/Home";
+
 
 import {ContextProvider} from "./Context"
 import Navigation from "./components/header/Navigation"
 import {BrowserRouter} from 'react-router-dom'
 import Loader from "./components/Loader";
-import ReactDOM, { unmountComponentAtNode } from "react-dom";
 
 
 
@@ -23,12 +22,12 @@ function App() {
             <Loader mount={setLoader} />
           }
 
-            <SvgBack/>
+            <SvgBack wait={loader}/>
             <BrowserRouter>
             <ContextProvider> 
-              <Navigation appref={appref}/>
+              <Navigation appref={appref} wait={loader}/>
               {/* Header */}
-                <Pages appref={appref}/>
+                <Pages appref={appref} wait={loader}/>
                 {/* <Home ></Home> */}
                 
               {/* Footer */} 

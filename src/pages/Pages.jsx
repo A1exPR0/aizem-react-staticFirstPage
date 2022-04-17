@@ -18,7 +18,7 @@ function Pages(props) {
 
     <Routes>
       {routes.map(({path,Component,i})=>(
-        <Route key={i} path={path} element={<Component appref={props.appref}/>}/>
+        <Route key={i} path={path} element={<Component wait={props.wait} appref={props.appref}/>}/>
       ))}
     </Routes>
 

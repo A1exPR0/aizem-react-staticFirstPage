@@ -1,7 +1,32 @@
-import React from 'react'
+import gsap from 'gsap';
+import React, { useEffect, useRef } from 'react'
 import styles from './SvgBack.module.scss'
 
-function SvgBack() {
+function SvgBack(props) {
+
+  useEffect(()=>{
+    const lines=document.querySelectorAll("."+styles.lines);
+    
+    if(props.wait)
+    {
+      gsap.set(lines,{
+        // opacity:0,
+        strokeDasharray:3000,
+        strokeDashoffset:3000
+      });
+    }
+    else {
+      console.log("reveal lines");
+      gsap.to(lines,{
+        strokeDashoffset:0,
+        // opacity:1,
+        duration:2,
+        delay:0.3,
+        clearProps: "all"
+      });
+    }
+  },[props.wait]);
+
   return (
      <div className={styles.container}>
     <svg className={styles.lines} width="1953" height="5253" viewBox="0 0 1953 5253" fill="none" xmlns="http://www.w3.org/2000/svg">

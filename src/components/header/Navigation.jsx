@@ -3,6 +3,7 @@ import {useNavigate,useLocation } from 'react-router-dom';
 import {Link} from "react-scroll";
 import styles from "./Navigation.module.scss";
 import cardStyles from '../Card.module.scss';
+import { useEffect } from 'react';
 
 const routes=[
   {path:"#", name:"Главная", i:0, animObjs:[".page"]},
@@ -28,6 +29,27 @@ function Navigation(props) {
 
       return arr2;
   }
+  useEffect(()=>{
+
+    const nav=document.querySelectorAll("."+styles.nav);
+    
+    if(props.wait)
+    {
+      gsap.set(nav,{
+        opacity:0,
+        y:-30
+      });
+    }
+    else {
+      console.log("reveal nav");
+      gsap.to(nav,{
+        y:0,
+        opacity:1,
+        duration:1,
+        delay:0.5
+      });
+    }
+  },[props.wait]);
 
    const pageChange=(e,dest)=>{
 

@@ -27,6 +27,29 @@ import styles from "./TextTest.module.scss"
         // ease: "power2.out",
     }
 
+    useEffect(()=>{
+
+      // const cont=document.querySelectorAll("."+styles.container);
+      const q=gsap.utils.selector(props.appref);
+      if(props.wait)
+      {
+        gsap.set([q("."+styles.header1),q("."+styles.header3),q("."+styles.header2)],{
+          opacity:0,
+
+        });
+      }
+      else {
+        console.log("reveal text");
+        reveal();
+        // gsap.to(cont.children,{
+        //   y:0,
+        //   opacity:1,
+        //   duration:1,
+        //   delay:0.8,
+        //   stagger:0.1
+        // });
+      }
+    },[props.wait]);
 
     const divRef=useRef();
 
@@ -109,9 +132,9 @@ import styles from "./TextTest.module.scss"
 
 const reveal=()=>{
 const q=gsap.utils.selector(props.appref);
-  console.log(q("."+styles.header2));
-  console.log(q("."+styles.container+">h3"));
-  gsap.fromTo([q("."+styles.header2),q("."+styles.container+">h3")],{
+  // console.log(q("."+styles.header2));
+  // console.log(q("."+styles.header3"));
+  gsap.fromTo([q("."+styles.header1),q("."+styles.header3),q("."+styles.header2)],{
     opacity:0,
     x:settings.xReveal
   },{
@@ -129,7 +152,7 @@ const q=gsap.utils.selector(props.appref);
       if(!isRevealed){
         removeWrappedText();
         appendWrappedText(textArr[textArr.length-1],true);
-        reveal();   
+        // reveal();   
       }
       timerId=setInterval(()=>{
         // console.log("Interval step");

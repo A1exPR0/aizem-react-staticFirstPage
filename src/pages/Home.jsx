@@ -11,9 +11,8 @@ import Clients from '../components/Clients';
 import Footer from '../components/Footer';
 
 import styles from "./Home.module.scss"
-
+import sliderStyles from '../components/slider/NewSlider.module.scss'
 import gsap from 'gsap';
-import myContext from '../Context';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
@@ -29,24 +28,53 @@ const settings={
 function Home(props) {
 
 
-  
-  
-
-
-
 //page reveal
 useEffect(()=>{
-  // getSliderData();
-  
-  gsap.fromTo(".page",{
-    opacity:0,
-    y:settings.revealY
-  },{
-    opacity:1,
-    y:0
-  });
 
-},[])
+  const svg=document.querySelectorAll("."+sliderStyles.svg);
+  const buttons=document.querySelectorAll("."+styles.buttonsTop)[0].children;
+  const headerCases=document.querySelectorAll("#cases>h2");
+
+  if(props.wait)
+  {
+    gsap.set(svg,{
+      opacity:0,
+      x:100
+    });
+    gsap.set(buttons,{
+      opacity:0,
+      y:50
+    });
+    gsap.set(headerCases,{
+      opacity:0,
+      x:-50
+    });
+    
+  }
+  else {
+    console.log("reveal slider");
+    gsap.to(svg,{
+      x:0,
+      opacity:1,
+      duration:0.5,
+      delay:1.5,
+      clearProps:"all"
+    });
+    gsap.to(buttons,{
+      y:0,
+      opacity:1,
+      duration:0.4,
+      delay:2.5,
+      stagger:0.3,
+      clearProps:"all"
+    });
+    gsap.to(headerCases,{
+      opacity:1,
+      x:0,
+      delay:4
+    });
+  }
+},[props.wait]);
 
 
 
@@ -74,14 +102,14 @@ useEffect(()=>{
 
 // console.log(arrow);
   return (
-    <div className='page'  >
+    <div className='page'>
       <div className={styles.section} >
-        <TextTest appref={props.appref}/>
+        <TextTest appref={props.appref} wait={props.wait}/>
         <div className={styles.buttonsTop}>
           <Button href="contacts" type="scroll" styling="orange">Свяжитесь с нами</Button>
           <Button href="cases" type="scroll" styling="white">Наши работы {arrowD}</Button>
         </div>
-        <NewSlider />
+        <NewSlider wait={props.wait}/>
       </div>
      
      <div className={styles.section} id="cases">
