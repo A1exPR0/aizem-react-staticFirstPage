@@ -1,0 +1,53 @@
+@import url('./font/stylesheet.css');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700;900&display=swap');
+
+*{
+  --first-color:#F87444;
+  --second-color:#007C98;
+
+}
+
+html{
+  font-size:1vmax;
+  scroll-behavior: smooth;
+  
+}
+
+body {
+  /* padding: 5rem; */
+  font-family: 'RoadRadio';
+  background-color:white;
+  margin: 0;
+  margin-right:10px;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+h2{
+  font-size: 3rem;
+  font-family: "RoadRadio";
+  font-weight: 700;
+}
+
+.App{
+  box-sizing: border-box;
+  width: 100vw;
+  overflow-x:hidden;
+}
+
+.test{
+  position: fixed;
+  display:block;
+  background-color: white;
+  opacity: 0.7;
+  padding:1rem;
+  border:solid 2px black;
+}

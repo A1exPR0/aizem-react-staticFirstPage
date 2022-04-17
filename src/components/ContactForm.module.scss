@@ -1,0 +1,101 @@
+.container{
+    // background-color: var(--second-color);
+    margin-top: 10rem;
+    width:100%;
+    height:80vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg{
+        position: absolute;
+        top:0;
+        left: -120px;
+        width:120vw;
+        z-index: -2;
+        height:auto;
+        fill: var(--second-color);
+    }
+    
+    form{
+        margin-top: 10rem;
+        display: flex;
+        position: relative;
+        // background-color: white;
+        min-width:550px;
+        min-height: 400px;
+        flex-direction: column;
+        label{
+            visibility: hidden;
+        }
+        .error{
+            text-align: right;
+            color:var(--first-color);
+            font-size:1.3rem;
+            transform: translate(0,-4rem);
+            font-weight:700;
+            width:fit-content;
+            margin-left:auto;
+        }
+        .succes{
+            text-align: center;
+            margin-bottom: 2rem;
+            opacity: 0;
+            color:white;
+            font-size: 1.5rem;
+        }
+        input:not([type="submit"]), textarea{
+            width:100%;
+            color:#fff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            background-color: transparent !important;
+            font-family: "Montserrat";
+            border: none;
+            border-bottom: 2px solid rgba($color: #fff, $alpha: 0.5);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            letter-spacing: 0.1rem;
+                
+                &::placeholder{
+                    color:white;
+                    opacity: 0.5;
+                    font-weight: 400;
+                    font-size: 1.2rem;
+                    transition: 0.5s;
+                    // &:focus{
+
+                    // }
+                }
+                &:focus{
+                    outline: none;
+                    border-bottom: 2px solid var(--first-color);
+                    &::placeholder{
+                        transform:translate(0,-1.5rem);
+                        font-size: 1rem;
+                        font-weight: 600;
+                        opacity: 1;
+                        transition: all 0.5s;
+
+                    }                       
+                }
+        }
+        textarea{
+            margin-bottom: 4rem;
+            resize:none;
+            font-size: 1.2rem;
+            font-weight: 400;
+            height: 15vmin;
+            line-height: 2rem;
+            position: relative;
+            
+
+        }
+        h3{
+            color: white;
+            font-size: 2rem;
+            align-self: center;
+        }
+    }
+}
