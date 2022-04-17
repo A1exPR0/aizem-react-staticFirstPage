@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Pages from "./pages/Pages";
 import SvgBack from "./components/SvgBack";
 import Home from "./pages/Home";
@@ -6,14 +6,23 @@ import Home from "./pages/Home";
 import {ContextProvider} from "./Context"
 import Navigation from "./components/header/Navigation"
 import {BrowserRouter} from 'react-router-dom'
+import Loader from "./components/Loader";
+import ReactDOM, { unmountComponentAtNode } from "react-dom";
 
 
 
 function App() {
 
+  const [loader,setLoader]=useState(true);
+
   const appref=useRef();
+
     return (
         <div className='App' ref={appref}>
+          {loader &&
+            <Loader mount={setLoader} />
+          }
+
             <SvgBack/>
             <BrowserRouter>
             <ContextProvider> 

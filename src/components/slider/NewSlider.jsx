@@ -20,14 +20,14 @@ const sliderDataStatic=[
 ]
 
 function NewSlider() {   
-  // const sliderRef=useRef();
+
 
 const [counter,setCounter]=useState(0);
-
 const [setter,setSetter]=useState({});
 
 //component did mount
 useEffect(()=>{
+
   //init setter for mask
   setSetter({
     didMount:true,
@@ -94,7 +94,6 @@ useEffect(()=>{
   const fadeMask=()=>{
     gsap.to("#mask circle",{opacity:0})
   }
-  const test=false;
 
  console.log("Slider render");
 
