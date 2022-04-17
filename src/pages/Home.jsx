@@ -17,10 +17,8 @@ import myContext from '../Context';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
-import { faCaretRight } from '@fortawesome/free-solid-svg-icons'
 
   const arrowD = <FontAwesomeIcon icon={faCaretDown} style={{marginLeft:"0.2em"}}/>
-  const arrowR = <FontAwesomeIcon icon={faCaretRight}style={{marginTop:"0.2em"}}/>
 
   const sliderDataStatic=[
     {withDesign:"images/pairs/medium_boxes_design_b4ac0717e0.png",noDesign:"images/pairs/medium_boxes_nodesign_60306de0e2.png"},
@@ -37,7 +35,7 @@ const settings={
 
 function Home(props) {
 
-const {server,updateCursor}=useContext(myContext);
+const {server,cursor,updateCursor}=useContext(myContext);
 
 const[sliderData,setSliderData]=useState([]);
 const [counter,setCounter]=useState(0);
@@ -95,6 +93,10 @@ useEffect(()=>{
     })
 },[counter,sliderData])
 
+const calculateMaskPos=(e)=>{
+  updateCursor(e);
+  console.log(cursor);
+}
 
   const getSliderData = async() => {
     const ls=localStorage.getItem('SliderData');
@@ -119,8 +121,8 @@ useEffect(()=>{
 
 // console.log(arrow);
   return (
-    <div className={'page'} ref={sliderRef} onMouseMove={updateCursor}>
-      <div className={styles.section}>
+    <div className='page' ref={sliderRef} >
+      <div className={styles.section} >
         <TextTest appref={props.appref}/>
         <div className={styles.buttonsTop}>
           <Button href="contacts" type="scroll" styling="orange">Свяжитесь с нами</Button>
