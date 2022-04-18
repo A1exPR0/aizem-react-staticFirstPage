@@ -121,11 +121,16 @@ useEffect(()=>{
           </mask>
       </defs>  
     <SliderPair sliderData={sliderDataStatic} counter={counter}/>
-   <div style={{visibility:"hidden"}}>
-      <img src={sliderDataStatic[counter+1==sliderDataStatic.length?0:counter+1].withDesign} alt="" srcset="" />
-      <img src={sliderDataStatic[counter+1==sliderDataStatic.length?0:counter+1].noDesign} alt="" srcset="" />
-      </div>
     </svg>
+    {props.wait && 
+      <div>
+        {sliderDataStatic.map((pair)=>(
+           <>
+           <img src={pair.withDesign} alt="" srcset="" />
+           <img src={pair.noDesign} alt="" srcset="" />
+           </>
+        ))}
+      </div>}
     </div>
   )
 }
