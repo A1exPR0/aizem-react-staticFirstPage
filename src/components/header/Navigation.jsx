@@ -6,8 +6,8 @@ import cardStyles from '../Card.module.scss';
 import { useEffect } from 'react';
 
 const routes=[
-  {path:"#", name:"Главная", i:0, animObjs:[".page"]},
-  {path:"cases", name:"Проекты", i:1, animObjs:["."+cardStyles.card]},
+  {path:"cases", name:"Проекты", i:0, animObjs:["."+cardStyles.card]},
+  {path:"services", name:"Услуги", i:1, animObjs:[".page"]},
   {path:"contacts", name:"Контакты", i:2,animObjs:["h2",".page"]}
 ];
 

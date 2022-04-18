@@ -124,10 +124,10 @@ function ContactForm(props) {
         <form>
         <h3>{props.children}</h3>
         <div style={{alignSelf:"center",marginTop:"3rem"}}>
-        <Button styling="orange" type="link">Написать в телеграм</Button>
+        <Button styling="orange" type="link" target="_blank" href="https://t.me/aizemverse">Написать в телеграм</Button>
         </div>
         <div style={{alignSelf:"center",marginTop:"3rem"}}>
-        <Button styling="white" type="link">Или на e-mail</Button>
+        <Button styling="white" type="link"  href="mailto:info@aizem.ru?subject=Давайте%20сделаем%20крутой%20проект">Или на e-mail</Button>
         </div>
           </form>
 

@@ -12,8 +12,8 @@ function Footer() {
   return (
     <div className={styles.container}>
         <div className={styles.col}>
-            <div>Телефон <a href='#'>89165520181</a></div>
-            <div>E-mail <a href="#">info@aizem.ru</a></div>
+            <div>Телефон<br/> <a href='tel:+79959018119'>+7 (995) 901-8119</a></div>
+            <div>E-mail <br/><a href="mailto:info@aizem.ru?subject=Давайте%20сделаем%20крутой%20проект">info@aizem.ru</a></div>
         </div>
         <div className={styles.col}>
         {/* <FontAwesomeIcon icon={faInstagram} size="2x" color='#333333'/> */}

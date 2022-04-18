@@ -28,7 +28,7 @@ const settings={
 function Home(props) {
 
 
-//page reveal
+//page reveal 
 useEffect(()=>{
 
   const svg=document.querySelectorAll("."+sliderStyles.svg);
@@ -64,7 +64,7 @@ useEffect(()=>{
       y:0,
       opacity:1,
       duration:0.4,
-      delay:2.5,
+      delay:2,
       stagger:0.3,
       clearProps:"all"
     });

@@ -14,14 +14,14 @@ function Loader(props) {
                 scaleX:1,
                 duration:3,
                 onComplete:()=>{
-                    gsap.to(bars[0],{
-                        y:"-500px",
-                        duration:0.5
-                    });
-                    gsap.to(bars[1],{
-                        y:"500px",
-                        duration:0.5,
-                        onComplete:()=>{
+                    // gsap.to(bars[0],{
+                    //     y:"-500px",
+                    //     duration:0.5
+                    // });
+                    // gsap.to(bars[1],{
+                    //     y:"500px",
+                    //     duration:0.5,
+                    //     onComplete:()=>{
                             gsap.to("."+styles.container,{
                                 opacity:0,
                                 duration:0.5,
@@ -33,15 +33,15 @@ function Loader(props) {
                     });
                     
                     
-                }
+                // }
                 
             })
-          });
+        //   });
     },[])
 
     const animateBar=()=>{
         gsap.set("."+styles.bar,{
-            transformOrigin:"0 50%",
+            transformOrigin:"50% 50%",
             scaleX:0,
             opacity:1
         })

@@ -19,7 +19,7 @@ const sliderDataStatic=[
   {withDesign:"images/pairs/medium_Scene_29_4012c698e6.png",noDesign:"images/pairs/medium_Scene_29_nodesign_e24d8eb0bd.png"},
 ]
 
-function NewSlider() {   
+function NewSlider(props) {   
 
 
 const [counter,setCounter]=useState(0);
@@ -28,19 +28,21 @@ const [setter,setSetter]=useState({});
 //component did mount
 useEffect(()=>{
 
-  //init setter for mask
+  //init setter for mask 
+
   setSetter({
     didMount:true,
     xSet:gsap.quickSetter(document.querySelector("#mask circle"), "x", "px"),
     ySet:gsap.quickSetter(document.querySelector("#mask circle"), "y", "px")
   })
+  if(!props.wait)
   updateSlider();
   return(()=>{
     setSetter({
       didMount:false
     })
   })
-},[]);
+},[props.wait]);
 
 //component updated counter
 useEffect(()=>{

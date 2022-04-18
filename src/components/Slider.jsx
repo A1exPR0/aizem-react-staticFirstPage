@@ -17,7 +17,7 @@ function Slider(props) {
 
     useEffect(() => {
         console.log("use effect started");
-        getSliderData();
+        // getSliderData();
         initSlider();
         let timerID = setInterval(() => {
             slideOut();
@@ -25,7 +25,7 @@ function Slider(props) {
         return(() => {
             clearInterval(timerID);
         })
-    },[])
+    },[props.wait])
 
     const getSliderData = async() => {
         const ls=localStorage.getItem('SliderData');

@@ -43,7 +43,7 @@ function Button(props) {
             <Link className={style} smooth={true} to={props.href}>{props.children}</Link>
         }
         {!isSubmit && !isScroll &&
-            <a href={props.href} className={style} onClick={props.callback}>{props.children} </a>
+            <a href={props.href} target={props.target} className={style} onClick={props.callback}>{props.children} </a>
         }
         <span className={styles.boxunder}>{props.children}</span>
     </div>
