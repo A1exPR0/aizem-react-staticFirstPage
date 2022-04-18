@@ -8,11 +8,13 @@
     align-items: center;
     .col{
         display: flex;
-        // flex-direction: column;
-        width:35%;
+        flex-direction: column;
+        // width:100%;
         box-sizing: border-box;
         padding: 3rem;
         font-family: "Montserrat";
+        // padding:0 1rem;
+        line-height: 2rem;
         svg{
             padding:1rem;
         }
@@ -23,16 +25,15 @@
         &:first-child{
             text-align: left;
         }
-        div{
-            padding:0 1rem;
-            line-height: 2rem;
+       
+            
             a{
                 color:var(--second-color);
                 text-decoration: none;
 
             }
            
-        }
+
     }
    
 
