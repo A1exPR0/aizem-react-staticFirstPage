@@ -14,9 +14,13 @@ const settings={
   sliderDelay:0.3,
 }
 const sliderDataStatic=[
+  {withDesign:"images/pairs/aizem_cup_design.png",noDesign:"images/pairs/aizem_cup_nodesign.png"},
+  {withDesign:"images/pairs/mss_transporter_design.png",noDesign:"images/pairs/mss_transporter_noDesign.png"},
   {withDesign:"images/pairs/medium_boxes_design_b4ac0717e0.png",noDesign:"images/pairs/medium_boxes_nodesign_60306de0e2.png"},
-  {withDesign:"images/pairs/medium_outdoor_Design_b3624bb656.png",noDesign:"images/pairs/medium_outdoor_blank_ffbc047e72.png"},
-  {withDesign:"images/pairs/medium_Scene_29_4012c698e6.png",noDesign:"images/pairs/medium_Scene_29_nodesign_e24d8eb0bd.png"},
+  {withDesign:"images/pairs/traveysion_umbrella_design.png",noDesign:"images/pairs/traveysion_umbrella_nodesign.png"},
+  {withDesign:"images/pairs/aizem_markers_design.png",noDesign:"images/pairs/aizem_markers_nodesign.png"},
+  {withDesign:"images/pairs/overquell_macbook_design.png",noDesign:"images/pairs/overquell_macbook_nodesign.png"},
+  {withDesign:"images/pairs/traveysion_heater_design.png",noDesign:"images/pairs/traveysion_heater_nodesign.png"},
 ]
 
 function NewSlider(props) {   
@@ -117,6 +121,10 @@ useEffect(()=>{
           </mask>
       </defs>  
     <SliderPair sliderData={sliderDataStatic} counter={counter}/>
+   <div style={{visibility:"hidden"}}>
+      <img src={sliderDataStatic[counter+1==sliderDataStatic.length?0:counter+1].withDesign} alt="" srcset="" />
+      <img src={sliderDataStatic[counter+1==sliderDataStatic.length?0:counter+1].noDesign} alt="" srcset="" />
+      </div>
     </svg>
     </div>
   )
