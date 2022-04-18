@@ -171,7 +171,7 @@ const q=gsap.utils.selector(props.appref);
       <div className={styles.container}>
         <div className={styles.name}>
           <h1 className={styles.header1}>AIZEM</h1>
-          <h3 className={styles.header3}>Агенство визуальной коммуникации</h3>
+          <h3 className={styles.header3}>Студия визуальной коммуникации</h3>
         </div>
         <h3 style={{opacity:0}} className={styles.header3}>Мы делаем</h3>
           <div style={{opacity:0}} ref={divRef} className={styles.header2}>
