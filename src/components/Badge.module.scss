@@ -1,3 +1,5 @@
+@import "../vars.scss";
+
 .badge{
     margin-right:2rem;
     padding:0.6rem;
@@ -10,12 +12,24 @@
 
 .orangeOutline{
     composes:badge;
-    border: solid var(--first-color) 1px;
+    border: solid $first-color 1px;
 
 }
 .greenSolid{
     composes:badge;
-    background-color: var(--second-color);
+    background-color: $second-color;
     color: white;
+
+}
+
+
+@media screen and(max-width:$max-mobile) {
+    .badge{
+        font-size: 1.5rem;
+        display: flex;
+        align-items: center;
+        border-radius: 0.3rem;
+        padding: 1rem;
+    }
 
 }

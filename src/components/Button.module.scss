@@ -1,22 +1,30 @@
-.a{
-    // display: inline-block;
-    font-family: "RoadRadio";
-    padding:0;
+@import "../vars.scss";
+
+.button_common{
+     padding:0;
     margin:0;
-    border:none;
-    box-shadow: none;
-    cursor: pointer;
-    width: auto;
-    height: auto;
-    margin-right: 3rem;
     padding:1rem 2rem;
     border-radius: 5px;
     text-decoration: none;
     font-weight: 700;
     font-size: 1.5rem;
     display: inline-block;
+    font-family: "RoadRadio";
+}
+
+.a{
+    // display: inline-block;
+    composes:button_common;
+   
+    border:none;
+    box-shadow: none;
+    cursor: pointer;
+    
+    width: auto;
+    height: auto;
+    margin-right: 3rem;
     position: relative;
-    box-shadow: 0.3rem 0.3rem 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0.3rem 0.3rem 5px $text-color-015;
     transition: 0.3s all;
     animation-delay: 0.2s;
     &:focus{
@@ -25,37 +33,31 @@
     }
     &:hover{
         transform: translate(1rem,1rem);
-        box-shadow: 0rem 0.3rem 5px rgba(0, 0, 0, 0.2);
+        box-shadow: 0rem 0.1rem 2px $text-color-015;
         transition: 0.3s all;
     }
 }
 
 .boxunder{
-    background-color: white;
-    padding:1rem 2rem;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 1.5rem;
-    // z-index:5;
-    display: inline-block;
+    composes:button_common;
+    background-color: $bg-color;
     position: absolute;
     left:0;
-    color:white;
+    color:$bg-color;
     z-index: -1;
     transform: translate(1rem,1rem);
     box-shadow: inset 1px 1px 6px rgba(0, 0, 0, 0.25);
 }
 .orange{
     composes:a;
-    background-color: var(--first-color);
-    color:white;
+    background-color:$first-color;
+    color:$bg-color;
     // z-index:2;
 }
 .white{
     composes:a;
-    background-color: white;
-    color:black;
+    background-color: $bg-color;
+    color:$text-color;
     // z-index:2;
 }
 
@@ -64,3 +66,10 @@
     position: relative;
     // height:50px;
 } 
+
+@media screen and (max-width:$max-mobile){
+    .button_common{
+        font-size: 2rem;
+        padding: 2rem 2rem;
+    }
+}

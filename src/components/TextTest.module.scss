@@ -1,7 +1,5 @@
-.rotated-text{
-    //transform:rotateX(90deg);
-    color: red;
-}
+@import "../vars.scss";
+
 .letter{
     font-size: 6rem;
     font-weight: 800;
@@ -30,4 +28,26 @@
 }
 .name{
     margin-bottom: 6rem;
+}
+
+@media screen and (max-width:$max-mobile){
+    .letter{
+        font-size:6rem;
+    }
+    .header1{
+        font-size: 7rem;
+    }
+    .header3{
+        font-size: 2rem;
+    }
+ 
+    .container{
+        width:100%;
+        box-sizing: border-box;
+        // text-align: center;
+    }
+    .name{
+        margin-bottom:4rem;
+    }
+
 }

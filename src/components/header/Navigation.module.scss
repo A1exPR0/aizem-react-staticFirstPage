@@ -1,7 +1,9 @@
+@import "../../vars.scss";
+
 .a{
     text-decoration: none;
     // width:8rem;  
-    color: black;
+    color: $text-color;
     padding:30px;
     // margin:30px;
     font-size:1.2rem;
@@ -10,7 +12,7 @@
     font-weight: 800;
 
     &:hover{
-        color:var(--first-color);
+        color:$first-color;
         transition: 0.5s color;
     }
 }
@@ -21,7 +23,7 @@
 }
 
 .nav{
-    margin:15px;
+    margin:1.3rem;
     display: flex;
     align-self: flex-end;
     align-items: flex-end;
@@ -33,5 +35,20 @@
         align-self: center;
         margin-left:3.5rem;
         
+    }
+}
+
+@media screen and (max-width:$max-mobile) {
+    .a{
+        font-size: 2rem;
+        padding:2rem;
+    }
+    .nav{
+        margin: 1rem;
+        margin-top: 5vh;
+        .logo{
+            width:5rem;
+            margin-left: 1rem;
+        }
     }
 }

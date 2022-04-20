@@ -1,9 +1,11 @@
+@import "../vars.scss";
+
 .container{
     width:60vw;
     height:50vh;
     min-height: 400px;
     position: relative;
-    margin:70px 0;
+    margin:6rem 0;
     align-self: flex-start;
     // overflow: hidden;
     &:nth-of-type(even){
@@ -14,7 +16,7 @@
 
 .card{
     // opacity: 0;
-    margin: 10px;
+    // margin: 1rem;
     // position: relative;
     overflow: hidden;
     // transform-origin: 50% 70%;
@@ -23,9 +25,9 @@
     width:60vw;
     height:50vh;
     min-height: 400px;
-    color: black;
-    box-shadow: 5px 5px 10px rgb(0 0 0 / 15%);
-    background-color: white;
+    color: $text-color;
+    box-shadow: 5px 5px 10px $text-color-015;
+    background-color: $bg-color;
     display: flex;
     // margin: auto;
     .pic{
@@ -96,4 +98,36 @@
         transform: translate(50%,-50%);
         pointer-events: none;
     }
+}
+
+@media screen and (max-width:$max-mobile) {
+    .card{
+        box-sizing: border-box;
+        width:100%;
+        margin: 0;
+        height: 30vh;
+        min-height:300px;
+        .info{
+            padding:4rem 2rem;
+            h2{
+                font-size: 3.5rem;
+                text-align: left;
+            }
+            p{
+                font-size: 2rem;
+                text-align:left;
+            }
+        }
+       
+    }
+    .container{
+        width:100%;
+        margin: 0;
+        box-sizing: border-box;
+        margin: 8rem 0;
+        min-height:unset;
+        height: 50vh;
+
+    }
+    
 }

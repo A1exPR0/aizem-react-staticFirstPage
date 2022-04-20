@@ -1,18 +1,31 @@
+@import "../../vars.scss";
+
 .svg{
     width:70vw;
-    margin-left:auto;
     height:80vh;
-    display: block;
     position: absolute;
     bottom:5vh;
     right:0;
     z-index: 3;
-    defs{
-        // position: absolute;
-        // z-index: 999;
-
-    }
     g{
-        width: 100vw;
+        width: 70vw;
+        left: 30vw;
+    }
+}
+
+@media screen and (max-width:$max-mobile){
+    .svg{
+        width:120vw;
+        height: 60vh;
+        bottom:7vh;
+        right:0;
+        g{
+            image:first-of-type{
+                visibility: hidden;
+            }
+            image:last-of-type{
+                mask:none;
+            }
+        }
     }
 }

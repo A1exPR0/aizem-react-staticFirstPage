@@ -1,10 +1,12 @@
+@import "../vars.scss";
+
 
 .grid{
     // background-color: aquamarine;
     display:grid;
     padding: 2rem;
-    grid-template-columns: 100px;
-    grid-template-rows: 100px;
+    grid-template-columns: 10rem;
+    grid-template-rows: 10rem;
     grid-auto-flow: column;
     grid-gap: 3rem 3rem;
     margin: auto;
@@ -13,10 +15,11 @@
 
 
     div{
-        width:100px;
-        height:100px;
+        width:10rem;
+        height:10rem;
         padding: 1rem;
-        background-color: #FFF;
+        box-sizing: border-box;
+        background-color:$bg-color;
         display: block;
         position: relative;
         box-shadow: 3px 3px 8px rgba(0,0,0,0.07);
@@ -36,7 +39,7 @@
         }
         img{
             opacity: 0.5;
-            background-color: #FFF;
+            background-color:$bg-color;
             transition: 0.3s;
             &:hover{
                 opacity: 1;
@@ -55,4 +58,37 @@
     text-align: center;
     transform: translate(0,150%);
     opacity: 0;
+}
+
+@media screen and (max-width:$max-mobile) {
+    .grid{
+        grid-auto-flow: row;
+        grid-template-columns: 15rem;
+        grid-template-rows: 15rem;
+        grid-gap: 5rem;
+
+        div{
+            width:15rem;
+            height:15rem;
+            border-radius: 0.3rem;
+            &:last-child{
+                // grid-column: span 2 / 1;
+                grid-row: 1;
+            }
+            &:first-child{
+                grid-row: 1;
+                // grid-column: span 2 / 1;
+            }
+            &:hover{
+                transform: scale(1.1);     
+                transition: 0.5s;       
+                
+            }
+        }
+       
+    }
+    .clientName{
+        font-size: 2rem;
+    }
+    
 }

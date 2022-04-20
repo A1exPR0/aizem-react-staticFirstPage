@@ -1,3 +1,5 @@
+@import "../vars.scss";
+
 .buttons{
     margin-top: 4rem;
     display: flex;
@@ -15,7 +17,7 @@
     margin:1rem 0;
     width: fit-content;
     padding-bottom: 0.7rem;
-    color: black;
+    color: $text-color;
     text-decoration: none;
     display: block;
     cursor:pointer;
@@ -28,11 +30,11 @@
 }
 .buttonActive{
     composes:button;
-    color:var(--second-color);
+    color:$second-color;
     margin-left: 1rem;
     transition: all 0.2s ease-in-out;
     // text-decoration: underline;
-    border-bottom: 2px solid var(--second-color);
+    border-bottom: 2px solid $second-color;
 }
 .wrapper{
     display: flex;
@@ -49,11 +51,11 @@
         display: flex;
         width: 100%;
         margin-left: 10rem;
-        height: 400px;
+        height: 60vh;
         border-radius: 0.5rem;
         overflow: hidden;
-        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.1);
-        background-color: #fff;
+        box-shadow: 5px 5px 10px $text-color-015;
+        background-color: $bg-color;
         
         .serviceInfo{
             flex: 1;
@@ -79,6 +81,49 @@
             flex: 1;
             width: 50%;
             object-fit: cover;
+        }
+    }
+}
+
+
+@media screen and (max-width:$max-mobile) {
+    .wrapper{
+        flex-direction: column;
+    }
+    .buttons{
+        box-sizing: border-box;
+        width:100%;
+        padding: 0 0;
+        margin: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        margin-bottom: 5rem;
+        justify-content: center;
+        align-items: center;
+        flex: auto;
+    }
+    .button{
+        margin: 0.5rem;
+        margin-top:2rem;
+        min-width: 10rem;
+        padding: 1rem;
+        font-size: 2.5rem;
+    }
+    .cardContainer{
+        flex: auto;
+        justify-content: center;
+        align-items: center;
+        .serviceCard{
+            margin: 0;
+            height: 45vh;
+            .serviceInfo{
+                h3{
+                    font-size: 4rem;
+                }
+                .content{
+                    font-size: 2rem;
+                }
+            }
         }
     }
 }

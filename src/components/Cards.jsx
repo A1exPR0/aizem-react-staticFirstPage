@@ -13,10 +13,12 @@ const settings={
 }
 
 const worksData=[
-  {title:"Overquell",desc:"Сайт для модного видеопродакшена",img:"images/works/medium_full_9ee951832b.jpg",badges:["Web Design","Development"],id:1},
   {title:"Beenamel",desc:"Ребрендинг на премиум продукцию для друзей - бренда ювелирных изделий из эмали Beenamel",img:"images/works/box1.png",badges:["Branding","Brand Strategy"],id:2},
+  {title:"Captown",desc:"Обложка для трека",img:"images/works/medium_full_9ee951832b.jpg",badges:["Graphic Design", "Art Direction"],id:1},
   {title:"ГК СОЮЗ",desc:"Разработка нового знака для группы строительных компаний из Сибири",img:"images/works/medium_2021_03_01_12_51_59_bb19754675.jpg",badges:["Logotype","Animation"],id:3},
   {title:"MSS",desc:"Помогли выдающемуся хирургу развить его идею, которая переросла в иноовационную школу практических навыков для мед. работников",img:"images/works/medium_oblozhka_youtube_0d566cc7b3.png",badges:["Branding","Web Design"],id:4},
+  {title:"Lookin Rooms",desc:"Контент сопровождения одного из самых масштабных ночных клубов Москвы",img:"images/works/medium_2021_03_01_12_51_59_bb19754675.jpg",badges:["Graphic Design","Motion Design"],id:3},
+  {title:"Ycure",desc:"Брендинг и маркетинг стратегия травмотологического отделения, где заботятся о комфорте пациентов",img:"images/works/medium_oblozhka_youtube_0d566cc7b3.png",badges:["Branding","Strategy"],id:4},
 ]
 
 function Cards(props) {

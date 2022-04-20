@@ -1,7 +1,9 @@
+@import "../vars.scss";
+
 .container{
     width:100vw;
     // height:5rem;
-    background-color: #efefef;
+    background-color: rgba($color: $text-color, $alpha: 0.07);
     font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
@@ -28,13 +30,31 @@
        
             
             a{
-                color:var(--second-color);
+                color:$second-color;
                 text-decoration: none;
 
             }
-           
-
     }
-   
+}
 
+@media screen and (max-width:$max-mobile) {
+    .container{
+        box-sizing: border-box;
+        padding: 2rem 1rem;
+        font-size: 2.2rem;
+        flex-wrap: wrap;
+        text-align: center;
+        justify-content: space-around;
+        .col{
+            line-height: 2.5rem;
+
+            &:last-child{
+                text-align: center;
+                justify-content: center;
+            }
+            &:first-child{
+            text-align: center;
+            }    
+        }
+    }
 }
