@@ -28,6 +28,9 @@
     z-index: 10;
     justify-content: flex-end;
 }
+#services{
+    min-height:unset;
+}
 
 @media screen and (max-width:$max-mobile){
     .section{
@@ -41,8 +44,7 @@
     .buttonsTop{
         width:calc(100vw - 4rem);
         justify-content: space-around;
-        bottom:5vh;
-        font-size:2rem;
+        bottom:10vh;
 
     }
     

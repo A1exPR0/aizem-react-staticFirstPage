@@ -108,17 +108,23 @@
 @media screen and (max-width:$max-mobile){
 
     .container{
-        height:unset;
+        height:50vh;
+        // padding: 5rem 0;
         align-items: flex-end;
         svg{
             left:-10vw;
-            bottom: 0;
+            // top: 0;
             top:unset;
+            bottom:0;
+            height:auto;
+            
         }
         form{
-            justify-content: center;
+            justify-content: flex-end;
             min-height: 50vh;
-            margin-top: 5rem;
+            margin-bottom: 5rem;
+            // padding:3rem 0;
+
             h3{
                 font-size: 3rem;
             }

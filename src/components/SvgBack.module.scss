@@ -1,3 +1,5 @@
+@import "../vars.scss";
+
 .container{
     width:100vw;
     height:600vh;
@@ -17,9 +19,21 @@
 }
 .overlay{
     position: fixed;
-    background-image: linear-gradient(to top, #FFF,80%, rgba(255,255,255,0));
+    background-image: linear-gradient(to top, $bg-color,80%, rgba($color:$bg-color, $alpha:0));
     bottom:0;
     z-index: -1;
     width:100vw;
     height:60vh;
+}
+
+@media screen and(max-width:$max-mobile){
+    .container{
+
+    }
+    .lines{
+        top:-30px;
+        width:180%;
+        stroke-width:1px;
+
+    }
 }

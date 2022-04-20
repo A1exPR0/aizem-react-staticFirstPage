@@ -51,7 +51,8 @@
         display: flex;
         width: 100%;
         margin-left: 10rem;
-        height: 60vh;
+        height: 40vh;
+        min-height:300px;
         border-radius: 0.5rem;
         overflow: hidden;
         box-shadow: 5px 5px 10px $text-color-015;
@@ -75,6 +76,9 @@
                 font-family:"Montserrat";
                 font-weight: 400;
                 font-size: 1.2rem;
+                p{
+                    margin-left: -2rem;
+                }
             }
         }
         img{
@@ -115,13 +119,28 @@
         align-items: center;
         .serviceCard{
             margin: 0;
-            height: 45vh;
+            height: 60vh;
+            flex-direction:column-reverse;
+            img{
+                width:100%;
+                height:30vh;
+            }
             .serviceInfo{
+                width:100%;
+                margin:0;
+                box-sizing: border-box;
+                justify-content: space-between;
                 h3{
                     font-size: 4rem;
+                    margin-bottom: 1rem;
                 }
                 .content{
                     font-size: 2rem;
+                    padding:1rem;
+                    p{
+
+                        margin-left: -2rem;
+                    }
                 }
             }
         }
