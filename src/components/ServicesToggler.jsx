@@ -4,11 +4,11 @@ import Badge from './Badge'
 import gsap from 'gsap'
 
 const servicesData=[
-  {title:"Branding", content:"\n- Branding Strategy\n- Brandbook\n- Logotype\n- Key Visual\n- Brand Communication", img:"images/services/Rectangle_45_5f6a0fc144.png",badges:["Beenamel","Ycure"]},
-  {title:"Web Design", content:"\n- User Experience Design\n- User Interface Design\n- Web Developmnet", img:"images/services/medium_sveta_me2_173496bb22.png",badges:["Overquell","dasBuro"]},
-  {title:"Design Sprint", content:"Быстрый способ решить сложную задачу по методике Google", img:"images/services/medium_bg_about_d565a96c4c.jpg",badges:["Im'OK","Cryptomons"]},
-  {title:"Strategy", content:"\n- Brand Strategy\n- Content Strategy\n- Marketing Strategy", img:"images/services/medium_bg_vacancies_41bca8cbc8.jpg",badges:["Beenamel","MSS"]},
-  {title:"Graphic Design", content:"\n- Posters\n- Banners\n- Social Media Content\n- POS Materials", img:"images/services/medium_3_banera_b3644b19c2.png",badges:["Lookin Rooms","Zodiac"]},
+  {title:"Branding", content:"\n- Branding Strategy\n- Brandbook\n- Logotype\n- Key Visual\n- Brand Communication", img:"images/services/traveysion_branding.jpg",badges:["Beenamel","Ycure"]},
+  {title:"Web Design", content:"\n- User Experience Design\n- User Interface Design\n- Web Developmnet", img:"images/services/dasburo_webdesign.jpg",badges:["Overquell","dasBuro"]},
+  {title:"Design Sprint", content:"Быстрый способ решить сложную задачу по методике Google", img:"images/services/design_sprint.jpg",badges:["Im'OK","Cryptomons"]},
+  {title:"Strategy", content:"\n- Brand Strategy\n- Content Strategy\n- Marketing Strategy", img:"images/services/strategy mem.jpeg",badges:["Beenamel","MSS"]},
+  {title:"Graphic Design", content:"\n- Posters\n- Banners\n- Social Media Content\n- POS Materials", img:"images/services/zodiac_graphDesign.jpg",badges:["Lookin Rooms","Zodiac"]},
 ]
 
 function SevicesToggler() {

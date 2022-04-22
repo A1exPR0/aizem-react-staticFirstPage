@@ -6,14 +6,16 @@ import TextPlugin from 'gsap/TextPlugin'
 
 function Clients(props) {
     const clients=[
-        {name:"Beenamel",logo:"/images/clients/BnmlLogo.svg",mask:"/images/clientsMask/BnmlLogo_mask.svg"},
-        {name:"Zodiac",logo:"/images/clients/ZodiacLogo.svg",mask:"/images/clientsMask/ZodiacLogo_mask.svg"},
-        {name:"Lookin Rooms",logo:"/images/clients/LookinLogo.svg",mask:"/images/clientsMask/LookinLogo_mask.svg"},
-        {name:"Lawyer Pro",logo:"/images/clients/LawyerLogo.svg",mask:"/images/clientsMask/LawyerLogo_mask.svg"},
-        {name:"Beenamel",logo:"/images/clients/BnmlLogo.svg",mask:"/images/clientsMask/BnmlLogo_mask.svg"},
-        {name:"Zodiac",logo:"/images/clients/ZodiacLogo.svg",mask:"/images/clientsMask/ZodiacLogo_mask.svg"},
-        {name:"Lookin Rooms",logo:"/images/clients/LookinLogo.svg",mask:"/images/clientsMask/LookinLogo_mask.svg"},
-        {name:"Lawyer Pro",logo:"/images/clients/LawyerLogo.svg",mask:"/images/clientsMask/LawyerLogo_mask.svg"},
+        {name:"Beenamel",logo:"/images/clients/BnmlLogo.svg",mask:"images/clients/Bnml.svg"},
+        {name:"Zodiac",logo:"/images/clients/ZodiacLogo.svg",mask:"images/clients/Zodiac.svg"},
+        {name:"Lookin Rooms",logo:"/images/clients/LookinLogo.svg",mask:"images/clients/Lookin.svg"},
+        {name:"Lawyer Pro",logo:"/images/clients/LawyerLogo.svg",mask:"images/clients/Lawyer.svg"},
+        {name:"MSS",logo:"/images/clients/BnmlLogo.svg",mask:"images/clients/Mss.svg"},
+        {name:"Protancy",logo:"/images/clients/ZodiacLogo.svg",mask:"images/clients/Protancy.svg"},
+        {name:"ГК СОЮЗ",logo:"/images/clients/LookinLogo.svg",mask:"images/clients/Souz.svg"},
+        {name:"Symposy",logo:"/images/clients/LawyerLogo.svg",mask:"images/clients/Symposy.svg"},
+        {name:"Syndicart",logo:"/images/clients/LawyerLogo.svg",mask:"images/clients/Synd.svg"},
+        {name:"Ycure",logo:"/images/clients/LawyerLogo.svg",mask:"images/clients/Ycure.svg"}
     ]
     
     const nameRef=useRef();
