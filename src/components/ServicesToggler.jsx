@@ -7,8 +7,8 @@ const servicesData=[
   {title:"Branding", content:"\n- Branding Strategy\n- Brandbook\n- Logotype\n- Key Visual\n- Brand Communication", img:"images/services/traveysion_branding.jpg",badges:["Beenamel","Ycure"]},
   {title:"Web Design", content:"\n- User Experience Design\n- User Interface Design\n- Web Developmnet", img:"images/services/dasburo_webdesign.jpg",badges:["Overquell","dasBuro"]},
   {title:"Design Sprint", content:"Быстрый способ решить сложную задачу по методике Google", img:"images/services/design_sprint.jpg",badges:["Im'OK","Cryptomons"]},
-  {title:"Strategy", content:"\n- Brand Strategy\n- Content Strategy\n- Marketing Strategy", img:"images/services/strategy mem.jpeg",badges:["Beenamel","MSS"]},
   {title:"Graphic Design", content:"\n- Posters\n- Banners\n- Social Media Content\n- POS Materials", img:"images/services/zodiac_graphDesign.jpg",badges:["Lookin Rooms","Zodiac"]},
+  {title:"Strategy", content:"\n- Brand Strategy\n- Content Strategy\n- Marketing Strategy", img:"images/services/strategy mem.jpeg",badges:["Beenamel","MSS"]},
 ]
 
 function SevicesToggler() {
@@ -47,10 +47,10 @@ function SevicesToggler() {
     function content(){
       return(
         <ul style={{margin:0,paddingLeft:"2rem"}}>
-          {arr.map((element)=>{
+          {arr.map((element,index)=>{
             if(element!="")
               if(element.slice(0,2)=="- ")
-                return <li>{element.slice(2,element.length)}</li>
+                return <li key={index}>{element.slice(2,element.length)}</li>
               else
                 return <p>{element}</p>
           })}

@@ -103,7 +103,7 @@ useEffect(()=>{
 // console.log(arrow);
   return (
     <div className='page'>
-      <div className={styles.section} >
+      <div className={styles.sectionFirst} >
         <TextTest appref={props.appref} wait={props.wait}/>
         <div className={styles.buttonsTop}>
           <Button href="contacts" type="scroll" styling="orange">Свяжитесь с нами</Button>

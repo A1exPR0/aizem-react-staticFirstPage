@@ -14,8 +14,8 @@ const settings={
   sliderDelay:0.3,
 }
 const sliderDataStatic=[
-  {withDesign:"images/pairs/aizem_cup_design.png",noDesign:"images/pairs/aizem_cup_nodesign.png"},
   {withDesign:"images/pairs/mss_transporter_design.png",noDesign:"images/pairs/mss_transporter_noDesign.png"},
+  {withDesign:"images/pairs/aizem_cup_design.png",noDesign:"images/pairs/aizem_cup_nodesign.png"},
   {withDesign:"images/pairs/medium_boxes_design_b4ac0717e0.png",noDesign:"images/pairs/medium_boxes_nodesign_60306de0e2.png"},
   {withDesign:"images/pairs/traveysion_umbrella_design.png",noDesign:"images/pairs/traveysion_umbrella_nodesign.png"},
   {withDesign:"images/pairs/aizem_markers_design.png",noDesign:"images/pairs/aizem_markers_nodesign.png"},
@@ -123,12 +123,12 @@ useEffect(()=>{
     <SliderPair sliderData={sliderDataStatic} counter={counter}/>
     </svg>
     {props.wait && 
-      <div>
-        {sliderDataStatic.map((pair)=>(
-           <>
-           <img src={pair.withDesign} alt="" srcset="" />
-           <img src={pair.noDesign} alt="" srcset="" />
-           </>
+      <div style={{opacity:0}}>
+        {sliderDataStatic.map((pair,index)=>(
+           <div key={index}>
+           <img src={pair.withDesign} alt=""/>
+           <img src={pair.noDesign} alt=""/>
+           </div>
         ))}
       </div>}
     </div>

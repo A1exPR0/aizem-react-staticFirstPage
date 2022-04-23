@@ -11,7 +11,7 @@ const settings={
   maxX:7,
   rotateDuration:0.15, // in s
   rotateFactor:100,
-  rotateDelay:0.02,   // in s
+  rotateDelay:0.1,   // in s
   restoreTimeOut:200, // in ms
   restoreDuration:2   // in s
 
@@ -20,6 +20,7 @@ const settings={
 function Card(props) {
 
   const updateRotation = function(e) {
+    console.log("update roatation");
 
     // console.log("Current target is: ",e.currentTarget);
 
@@ -54,8 +55,8 @@ function Card(props) {
     // console.log("precents: "+percentX,percentY);
 
 
-    let factorX=10;
-    let factorY=20;
+    let factorX=5;
+    let factorY=-12;
 
     let rotateX=percentY*factorX;
     let rotateY=percentX*factorY;
@@ -88,7 +89,8 @@ function Card(props) {
                           ease:"none",
                           duration:settings.rotateDuration,
                           delay:settings.rotateDelay,
-                          boxShadow:(percentX+1)*factorY+"px "+(percentY-1)*-factorX+"px "+(percentX+1.2)*6+"px 0px rgba(0, 0, 0, 0.15)"
+                          boxShadow:(percentX+1)*factorY+"px "+(percentY-1)*-factorX+"px "+(percentX+1.2)*6+"px 0px rgba(0, 0, 0, 0.15)",
+                          onComplete:console.log("rotated")
                         });
         gsap.to(dark,{
                           y:itemH/2,
@@ -105,7 +107,7 @@ function Card(props) {
   }
   
 function restoreCard(e){
-
+  console.log("restore rotation");
   const card=e.currentTarget;
   let light;
   let dark;
@@ -130,6 +132,8 @@ function restoreCard(e){
         rotateX:0,
         rotateY:0,
         rotateZ:0,
+        x:0,
+        translateZ:0,
         ease:"power.out",
         duration:settings.restoreDuration,
         boxShadow:"5px 5px 10px rgba(0,0,0,0.15)"
@@ -144,7 +148,7 @@ function restoreCard(e){
 
   return (
     <div className={styles.container}>
-       <div  id={props.idProp}  className={styles.card} onMouseMove={updateRotation} onMouseLeave={restoreCard}> 
+       <div  id={props.idProp}  className={styles.card} onMouseMove={updateRotation} onMouseEnter={updateRotation} onMouseLeave={restoreCard}> 
         <img className={styles.pic} src={props.src} alt="" />
         <div className={styles.info}>
           <h2>{props.name}</h2>

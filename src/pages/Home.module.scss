@@ -3,9 +3,14 @@
 .section{
     padding:3rem 6rem;
     width:100vw;
-    min-height: 85vh;
+    // min-height: 85vh;
     box-sizing: border-box;
     position:relative;
+}
+
+.sectionFirst{
+    composes:section;
+    min-height: 85vh;
 }
 
 .buttonsTop{
@@ -27,9 +32,6 @@
     position:relative;
     z-index: 10;
     justify-content: flex-end;
-}
-#services{
-    min-height:unset;
 }
 
 @media screen and (max-width:$max-mobile){
