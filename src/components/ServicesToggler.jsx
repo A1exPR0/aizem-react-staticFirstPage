@@ -11,7 +11,7 @@ const servicesData=[
   {title:"Strategy", content:"\n- Brand Strategy\n- Content Strategy\n- Marketing Strategy", img:"images/services/strategy mem.jpeg",badges:["Beenamel","MSS"]},
 ]
 
-function SevicesToggler() {
+function SevicesToggler(props) {
   const contRef=useRef();
   const q=gsap.utils.selector(contRef);
 
@@ -85,6 +85,11 @@ function SevicesToggler() {
                 
             </div>
         </div>
+        {props.wait &&
+        <div>
+        {servicesData.map((service,index)=>(<img src={service.img} key={index}/>))}
+        </div>
+        }
     </div>
   )
 }

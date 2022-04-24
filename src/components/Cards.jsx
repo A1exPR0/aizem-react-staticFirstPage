@@ -13,8 +13,8 @@ const settings={
 }
 
 const worksData=[
-  {title:"Beenamel",desc:"Из масмаркета в премиум - история перевоплещения не только визуала, но и всей философии ювелирного бренда!",img:"images/works/beenamel_projects.png",badges:["Branding","Brand Strategy"],id:2},
-  {title:"Captown",desc:"\"С любовью\" - сингл рэп группы Captown. Музыкальная новела о любви... к деньгам! Мы не смогли пройти стороной такую тему и сделали для ребят обложку",img:"images/works/captown_projects.jpg",badges:["Graphic Design", "Art Direction"],id:1},
+  {title:"Beenamel",desc:"Из масмаркета в премиум - история перевоплощения не только визуала, но и всей философии ювелирного бренда!",img:"images/works/beenamel_projects.png",badges:["Branding","Brand Strategy"],id:2},
+  {title:"Captown",desc:"\"С любовью\" - сингл рэп группы Captown. Музыкальная новелла о любви... к деньгам! Мы не смогли пройти стороной такую тему и сделали для ребят обложку",img:"images/works/captown_projects.jpg",badges:["Graphic Design", "Art Direction"],id:1},
   {title:"ГК СОЮЗ",desc:"Строительный бизнес уступает, наверно, только банкам, в требованиях к надежности в образе компании. Чтобы идти в ногу со временем, крупный застройщик из г. Барнаула обратился к нам за разработкой нового логотипа.",img:"images/works/souz_projects.png",badges:["Logotype","Animation"],id:3},
   {title:"MSS",desc:"Помогли выдающемуся хирургу развить его идею, которая переросла в инновационную школу практических навыков для мед. работников.",img:"images/works/mss_projects.jpg",badges:["Branding","Web Design"],id:4},
   {title:"Lookin Rooms",desc:"9 месяцев контент сопровождения для одного из самых масштабных ночных клубов Москвы. Сделано более 70 афиш и 100 анимаций.",img:"images/works/lookin projects.jpg",badges:["Graphic Design","Motion Design"],id:3},
@@ -24,7 +24,7 @@ const worksData=[
 function Cards(props) {
     const [works, setWorks]=useState([]);
 
-    const q2 = gsap.utils.selector(props.appref);
+    
 
     useEffect(()=>{
         getWorks();
@@ -33,7 +33,7 @@ function Cards(props) {
 
     useEffect(()=>{
       if(works.length){
-
+        const q2 = gsap.utils.selector(props.appref);
         gsap.fromTo(q2("."+cardStyles.card),{
             opacity:0,
             y:settings.revealY
@@ -44,7 +44,7 @@ function Cards(props) {
               duration:settings.revealDuration
           });
       }
-  },[works]); 
+  },[works,props.appref]); 
     
 
 const getWorks = async()=>{

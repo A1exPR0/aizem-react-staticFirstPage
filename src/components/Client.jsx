@@ -6,7 +6,7 @@ function Client(props) {
 
   return (
     <div onMouseEnter={props.enter} onMouseLeave={props.leave}>
-        <img src={props.img}></img>
+        <img src={props.img} alt={props.name}></img>
     </div>
   )
 }

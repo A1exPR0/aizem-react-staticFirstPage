@@ -39,7 +39,7 @@ import styles from "./TextTest.module.scss"
         });
       }
       else {
-        console.log("reveal text");
+        // console.log("reveal text");
         reveal();
         // gsap.to(cont.children,{
         //   y:0,

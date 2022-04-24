@@ -2,8 +2,8 @@
 
 .container{
     width:60vw;
-    height:50vh;
-    min-height: 400px;
+    min-height:50vh;
+    // min-height: 400px;
     position: relative;
     margin:4rem 0;
     align-self: flex-start;
@@ -23,8 +23,9 @@
     // padding: 5rem;
     border-radius: 1rem;
     width:60vw;
-    height:50vh;
-    min-height: 400px;
+    min-height:50vh;
+    height: 100%;
+    max-height: 70vh;
     color: $text-color;
     box-shadow: 5px 5px 10px $text-color-015;
     background-color: $bg-color;
@@ -32,6 +33,7 @@
     // margin: auto;
     .pic{
           width:50%;
+          height:auto;
           object-fit: cover;
           display: block;
         //   height:auto;  
@@ -44,7 +46,7 @@
         width:50%;
         z-index: 5;
         padding: 4rem 4rem;
-        
+        box-sizing: border-box;
         h2{
             font-size: 3rem;
             flex:1;
@@ -105,8 +107,8 @@
         box-sizing: border-box;
         width:100%;
         margin: 0;
-        height: 60vh;
-        min-height:300px;
+        min-height: 60vh;
+        // min-height:300px;
         flex-direction:column;
         .pic{
             width:100%;
@@ -131,8 +133,8 @@
         width:100%;
         margin: 0;
         box-sizing: border-box;
-        margin: 7rem 0;
-        min-height:unset;
+        margin: 5rem 0;
+        // min-height:unset;
         // height: 70vh;
 
     }

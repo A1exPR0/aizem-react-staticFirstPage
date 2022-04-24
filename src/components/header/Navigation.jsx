@@ -41,7 +41,7 @@ function Navigation(props) {
       });
     }
     else {
-      console.log("reveal nav");
+      // console.log("reveal nav");
       gsap.to(nav,{
         y:0,
         opacity:1,

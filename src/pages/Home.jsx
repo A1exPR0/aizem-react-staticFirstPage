@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useContext } from 'react'
+import React, { useEffect } from 'react'
 
 
 import Cards from "../components/Cards";
@@ -21,9 +21,9 @@ import { faCaretDown } from '@fortawesome/free-solid-svg-icons'
 
   
 
-const settings={
-  revealY:50
-};
+// const settings={
+//   revealY:50
+// };
 
 function Home(props) {
 
@@ -52,7 +52,7 @@ useEffect(()=>{
     
   }
   else {
-    console.log("reveal slider");
+    // console.log("reveal slider");
     gsap.to(svg,{
       x:0,
       opacity:1,
@@ -121,7 +121,7 @@ useEffect(()=>{
     </div>
     <div className={styles.section} id="services">
       <h2>Мы делаем</h2>
-      <ServicesToggler/>
+      <ServicesToggler wait={props.wait}/>
     </div>
       <Clients>Наши клиенты</Clients>
 

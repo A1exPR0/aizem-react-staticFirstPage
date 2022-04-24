@@ -6,37 +6,37 @@ import styles from './Loader.module.scss'
 function Loader(props) {
     
     useEffect(()=>{
-        const bars=document.getElementsByClassName(styles.bar);
-        animateBar();
         window.addEventListener("load", function(event) {
             console.log("All resources finished loading!");
             gsap.to(bars,{
                 scaleX:1,
-                duration:3,
+                duration:2,
                 onComplete:()=>{
                     // gsap.to(bars[0],{
-                    //     y:"-500px",
-                    //     duration:0.5
-                    // });
-                    // gsap.to(bars[1],{
-                    //     y:"500px",
-                    //     duration:0.5,
-                    //     onComplete:()=>{
-                            gsap.to("."+styles.container,{
-                                opacity:0,
-                                duration:0.5,
-                                onComplete:()=>{
-                                    props.mount(false);
-                                }
-                            })
-                        }
-                    });
-                    
-                    
-                // }
-                
-            })
-        //   });
+                        //     y:"-500px",
+                        //     duration:0.5
+                        // });
+                        // gsap.to(bars[1],{
+                            //     y:"500px",
+                            //     duration:0.5,
+                            //     onComplete:()=>{
+                                gsap.to("."+styles.container,{
+                                    opacity:0,
+                                    duration:0.5,
+                                    onComplete:()=>{
+                                        props.mount(false);
+                                    }
+                                })
+                            }
+                        });
+                        
+                        
+                        // }
+                        
+                    })
+                    //   });
+        const bars=document.getElementsByClassName(styles.bar);
+        animateBar();
     },[])
 
     const animateBar=()=>{

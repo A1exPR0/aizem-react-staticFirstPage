@@ -2,12 +2,12 @@
 import styles from './NewSlider.module.scss'
 import SliderPair from './SliderPair'
 import gsap from 'gsap';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const settings={
   yCompOffset:1,
-  maskRadius:80,
-  maskBlockSize:400,
+  maskRadius:"7vw",
+  maskBlockSize:"7vw",
   maskBlur:5,
   sliderInterval:5000, // in ms
   sliderX:100,
@@ -15,8 +15,8 @@ const settings={
 }
 const sliderDataStatic=[
   {withDesign:"images/pairs/mss_transporter_design.png",noDesign:"images/pairs/mss_transporter_noDesign.png"},
-  {withDesign:"images/pairs/aizem_cup_design.png",noDesign:"images/pairs/aizem_cup_nodesign.png"},
   {withDesign:"images/pairs/medium_boxes_design_b4ac0717e0.png",noDesign:"images/pairs/medium_boxes_nodesign_60306de0e2.png"},
+  {withDesign:"images/pairs/aizem_cup_design.png",noDesign:"images/pairs/aizem_cup_nodesign.png"},
   {withDesign:"images/pairs/traveysion_umbrella_design.png",noDesign:"images/pairs/traveysion_umbrella_nodesign.png"},
   {withDesign:"images/pairs/aizem_markers_design.png",noDesign:"images/pairs/aizem_markers_nodesign.png"},
   {withDesign:"images/pairs/overquell_macbook_design.png",noDesign:"images/pairs/overquell_macbook_nodesign.png"},
@@ -29,18 +29,19 @@ function NewSlider(props) {
 const [counter,setCounter]=useState(0);
 const [setter,setSetter]=useState({});
 
-//component did mount
+//component not waiting
 useEffect(()=>{
 
   //init setter for mask 
 
-  setSetter({
+  if(!props.wait)
+  {setSetter({
     didMount:true,
     xSet:gsap.quickSetter(document.querySelector("#mask circle"), "x", "px"),
     ySet:gsap.quickSetter(document.querySelector("#mask circle"), "y", "px")
   })
-  if(!props.wait)
-  updateSlider();
+  setCounter(1);}
+  // updateSlider();
   return(()=>{
     setSetter({
       didMount:false
@@ -53,7 +54,7 @@ useEffect(()=>{
   if(setter.didMount){
     setTimeout(()=>{
       // console.log("Counter is",counter);
-    
+      
       updateSlider();
 
     },settings.sliderInterval);
@@ -101,7 +102,7 @@ useEffect(()=>{
     gsap.to("#mask circle",{opacity:0})
   }
 
- console.log("Slider render");
+//  console.log("Slider render");
 
     return (
     <div>
@@ -114,7 +115,8 @@ useEffect(()=>{
             <circle 
                 cx={0}
                 cy={0}
-                fill="white" r={settings.maskRadius} 
+                fill="white" 
+                r={settings.maskRadius} 
                 width={settings.maskBlockSize} 
                 height={settings.maskBlockSize} 
                 filter="url(#mask-blur)" />

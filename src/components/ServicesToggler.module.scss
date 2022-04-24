@@ -4,7 +4,7 @@
     margin-top: 4rem;
     display: flex;
     flex-direction: column;
-    justify-content:start;
+    justify-content:flex-start;
     flex:1;
     
 }
@@ -19,6 +19,7 @@
     padding-bottom: 0.7rem;
     color: $text-color;
     text-decoration: none;
+    text-align: left;
     display: block;
     cursor:pointer;
     transition: all 0.2s ease-in-out;
@@ -46,14 +47,17 @@
 .cardContainer{
     display: flex;
     flex: 4;
-    justify-content: end;
+    justify-content: flex-end;
+    height: 100%;
+    min-height: 50vh;
+    max-height: 70vh;
     .serviceCard{
         // background-color: bisque;
         display: flex;
         width: 100%;
         margin-left: 10rem;
-        // height: 40vh;
-        min-height:300px;
+        height: 100%;
+        min-height:40vh;
         border-radius: 0.5rem;
         overflow: hidden;
         box-shadow: 5px 5px 10px $text-color-015;
@@ -63,6 +67,7 @@
             flex: 1;
             padding: 2rem ;
             display: flex;
+            height:100%;
             flex-direction: column;
             justify-content: space-between;
 
@@ -86,6 +91,7 @@
             flex: 1;
             width: 50%;
             object-fit: cover;
+            height: auto;
         }
     }
 }

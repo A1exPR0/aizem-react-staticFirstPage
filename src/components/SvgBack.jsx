@@ -16,7 +16,7 @@ function SvgBack(props) {
       });
     }
     else {
-      console.log("reveal lines");
+      // console.log("reveal lines");
       gsap.to(lines,{
         strokeDashoffset:0,
         // opacity:1,
