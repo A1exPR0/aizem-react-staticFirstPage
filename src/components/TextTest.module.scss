@@ -1,6 +1,7 @@
 @import "../vars.scss";
 
 .letter{
+    color:$text-color;
     font-size: 6rem;
     font-weight: 800;
     text-transform: uppercase;
@@ -12,7 +13,7 @@
     width:fit-content;
 }
 .header2{
-    color:black;
+    color:$text-color;
     font-size: 3rem;
 }
 .header3{
@@ -20,9 +21,10 @@
     font-size: 1.2rem;
     font-weight: 700;
     margin: 0.5rem 0;
-    color:black;
+    color:$text-color;
 }
 .header1{
+    color:$text-color;
     font-size: 3.5rem;
     margin: 0.5rem 0;
 }

@@ -2,6 +2,6 @@ $first-color:#F87444;
 $second-color:#007C98;
 $bg-color:white;
 $text-color:black;
-$text-color-025:rgba(0, 0, 0, 0.25);
-$text-color-015:rgba(0, 0, 0, 0.15);
+$text-color-025:rgba($color:$text-color, $alpha:0.25);
+$text-color-015:rgba($color:$text-color, $alpha:0.15);
 $max-mobile:700px;

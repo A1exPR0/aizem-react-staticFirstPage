@@ -12,6 +12,7 @@
     margin: auto;
     justify-content:center;
     align-items: center;
+    color:$text-color;
 
 
     div{
@@ -41,6 +42,7 @@
             opacity: 0.5;
             background-color:$bg-color;
             transition: 0.3s;
+            fill:$text-color;
             &:hover{
                 opacity: 1;
                 transition: 0.3s;
@@ -52,6 +54,7 @@
     margin: 10rem 0 3rem 0;
     text-align: center;
     width:100%;
+    color:$text-color;
     // color:red;
 }
 .clientName{
@@ -59,6 +62,7 @@
     transform: translate(0,150%);
     opacity: 0;
     margin:1rem 0;
+    color:$text-color;
 }
 
 @media screen and (max-width:$max-mobile) {
