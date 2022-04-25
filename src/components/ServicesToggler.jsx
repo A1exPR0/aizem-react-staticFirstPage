@@ -4,12 +4,19 @@ import Badge from './Badge'
 import gsap from 'gsap'
 
 const servicesData=[
-  {title:"Branding", content:"\n- Branding Strategy\n- Brandbook\n- Logotype\n- Key Visual\n- Brand Communication", img:"images/services/traveysion_branding.jpg",badges:["Beenamel","Ycure"]},
-  {title:"Web Design", content:"\n- User Experience Design\n- User Interface Design\n- Web Developmnet", img:"images/services/dasburo_webdesign.jpg",badges:["Overquell","dasBuro"]},
-  {title:"Design Sprint", content:"Быстрый способ решить сложную задачу по методике Google", img:"images/services/design_sprint.jpg",badges:["Im'OK","Cryptomons"]},
-  {title:"Graphic Design", content:"\n- Posters\n- Banners\n- Social Media Content\n- POS Materials", img:"images/services/zodiac_graphDesign.jpg",badges:["Lookin Rooms","Zodiac"]},
-  {title:"Strategy", content:"\n- Brand Strategy\n- Content Strategy\n- Marketing Strategy", img:"images/services/strategy mem.jpeg",badges:["Beenamel","MSS"]},
+  {title:"Брендинг", content:"\n- Бренд стратегия\n- Брендбук\n- Логотип\n- Фирменный стиль\n- Бренд коммуникация", img:"images/services/traveysion_branding.jpg",badges:["Beenamel","Ycure"]},
+  {title:"Вэб Дизайн", content:"\n- Проектирование польз. опыта\n- Дизайн интерфейсов\n- Вэб разработка", img:"images/services/dasburo_webdesign.jpg",badges:["Overquell","dasBuro"]},
+  {title:"Дизайн Спринт", content:"Быстрый способ решить сложную задачу по методике Google", img:"images/services/design_sprint.jpg",badges:["Im'OK","Cryptomons"]},
+  {title:"Граф. Дизайн", content:"\n- Постеры\n- Баннеры\n- Контент в соц. медиа\n- Печатная продукция\n- Мерч", img:"images/services/zodiac_graphDesign.jpg",badges:["Lookin Rooms","Zodiac"]},
+  {title:"Стратегия", content:"\n- Бренд стратегия\n- Контент Стратегия\n- Маркетинг стратегия", img:"images/services/strategy mem.jpeg",badges:["Beenamel","MSS"]},
 ]
+// const servicesData=[
+//   {title:"Branding", content:"\n- Branding Strategy\n- Brandbook\n- Logotype\n- Key Visual\n- Brand Communication", img:"images/services/traveysion_branding.jpg",badges:["Beenamel","Ycure"]},
+//   {title:"Web Design", content:"\n- User Experience Design\n- User Interface Design\n- Web Developmnet", img:"images/services/dasburo_webdesign.jpg",badges:["Overquell","dasBuro"]},
+//   {title:"Design Sprint", content:"Быстрый способ решить сложную задачу по методике Google", img:"images/services/design_sprint.jpg",badges:["Im'OK","Cryptomons"]},
+//   {title:"Graphic Design", content:"\n- Posters\n- Banners\n- Social Media Content\n- POS Materials", img:"images/services/zodiac_graphDesign.jpg",badges:["Lookin Rooms","Zodiac"]},
+//   {title:"Strategy", content:"\n- Brand Strategy\n- Content Strategy\n- Marketing Strategy", img:"images/services/strategy mem.jpeg",badges:["Beenamel","MSS"]},
+// ]
 
 function SevicesToggler(props) {
   const contRef=useRef();
@@ -48,8 +55,8 @@ function SevicesToggler(props) {
       return(
         <ul style={{margin:0,paddingLeft:"2rem"}}>
           {arr.map((element,index)=>{
-            if(element!="")
-              if(element.slice(0,2)=="- ")
+            if(element!=="")
+              if(element.slice(0,2)==="- ")
                 return <li key={index}>{element.slice(2,element.length)}</li>
               else
                 return <p>{element}</p>
@@ -66,7 +73,7 @@ function SevicesToggler(props) {
     <div className={styles.wrapper}>
         <div className={styles.buttons}>
           {servicesData.map((el,index)=>{
-            return <button key={index}  onClick={(e)=>changeCurrent(index)} className={index==current?styles.buttonActive:styles.button}>{el.title}</button>
+            return <button key={index}  onClick={(e)=>changeCurrent(index)} className={index===current?styles.buttonActive:styles.button}>{el.title}</button>
           })}
         </div>
         <div className={styles.cardContainer} ref={contRef}>
@@ -85,11 +92,11 @@ function SevicesToggler(props) {
                 
             </div>
         </div>
-        {props.wait &&
-        <div>
-        {servicesData.map((service,index)=>(<img src={service.img} key={index}/>))}
+        
+        <div className={styles.preload}>
+        {servicesData.map((service,index)=>(<img src={service.img} key={index} alt=""/>))}
         </div>
-        }
+        
     </div>
   )
 }

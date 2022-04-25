@@ -4,10 +4,15 @@ import styles from './Loader.module.scss'
 
 
 function Loader(props) {
-    
     useEffect(()=>{
+        let done=false;
+        const bars=document.getElementsByClassName(styles.bar);
+        console.log("adding load listener nex line");
         window.addEventListener("load", function(event) {
             console.log("All resources finished loading!");
+            
+            if(!done){
+            done=true;    
             gsap.to(bars,{
                 scaleX:1,
                 duration:2,
@@ -25,6 +30,8 @@ function Loader(props) {
                                     duration:0.5,
                                     onComplete:()=>{
                                         props.mount(false);
+                                       
+                                        console.log("from event");
                                     }
                                 })
                             }
@@ -33,9 +40,35 @@ function Loader(props) {
                         
                         // }
                         
-                    })
+                    }});
+        setTimeout(()=>{
+            if(!done)
+            gsap.to(bars,{
+                scaleX:1,
+                duration:2,
+                onComplete:()=>{
+                    // gsap.to(bars[0],{
+                        //     y:"-500px",
+                        //     duration:0.5
+                        // });
+                        // gsap.to(bars[1],{
+                            //     y:"500px",
+                            //     duration:0.5,
+                            //     onComplete:()=>{
+                                gsap.to("."+styles.container,{
+                                    opacity:0,
+                                    duration:0.5,
+                                    onComplete:()=>{
+                                        props.mount(false);
+                                        console.log("from timeout");
+                                        done=true;
+                                    }
+                                })
+                            }
+                        });
+
+        },3000)
                     //   });
-        const bars=document.getElementsByClassName(styles.bar);
         animateBar();
     },[])
 
@@ -52,9 +85,7 @@ function Loader(props) {
         })
     }
 
-    const animateText=()=>{
 
-    }
     
   return (
     <div className={styles.container}>

@@ -20,7 +20,7 @@ const settings={
 function Card(props) {
 
   const updateRotation = function(e) {
-    console.log("update roatation");
+    // console.log("update roatation");
 
     // console.log("Current target is: ",e.currentTarget);
 
@@ -90,7 +90,7 @@ function Card(props) {
                           duration:settings.rotateDuration,
                           delay:settings.rotateDelay,
                           boxShadow:(percentX+1)*factorY+"px "+(percentY-1)*-factorX+"px "+(percentX+1.2)*6+"px 0px rgba(0, 0, 0, 0.15)",
-                          onComplete:console.log("rotated")
+                          // onComplete:console.log("rotated")
                         });
         gsap.to(dark,{
                           y:itemH/2,
@@ -107,7 +107,7 @@ function Card(props) {
   }
   
 function restoreCard(e){
-  console.log("restore rotation");
+  // console.log("restore rotation");
   const card=e.currentTarget;
   let light;
   let dark;

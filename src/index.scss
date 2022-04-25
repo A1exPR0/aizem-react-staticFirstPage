@@ -3,10 +3,16 @@
 @import "./vars.scss";
 
 
+*{
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
 
 
 html{
-  font-size:1.8vmin;
+  // font-size:calc(0.1vmax + 1.5vmin);
+  font-size:min(1.15vmax, 2vmin);
   scroll-behavior: smooth;
   
 }
@@ -16,7 +22,7 @@ body {
   font-family: 'RoadRadio';
   background-color:white;
   margin: 0;
-  margin-right:10px;
+  // margin-right:10px;
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif; */
@@ -37,7 +43,7 @@ h2{
 
 .App{
   box-sizing: border-box;
-  width: 100vw;
+  width: 100%;
   overflow-x:hidden;
 }
 
